@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Informe de Ventas -->
+    <record id="meme_pet.report_venta" model="ir.actions.report">
+        <field name="name">Informe de Ventas</field>
+        <field name="model">meme_pet_venta</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">meme_pet.report_venta_view</field>
+        <field name="binding_model_id" ref="model_meme_pet_venta"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="meme_pet.report_venta_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="venta">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="venta.fecha_venta"/>
+                        <div>
+                            <strong>Cliente:</strong>
+                            <span t-field="venta.cliente_venta.name"/>
+                        </div>
+                        <div>
+                            <strong>Dependiente:</strong>
+                            <span t-field="venta.dependiente_venta.name"/>
+                        </div>
+                        <div>
+                            <strong>Animal:</strong>
+                            <span t-field="venta.animal_venta.name"/>
+                        </div>
+                        <div>
+                            <strong>Producto:</strong>
+                            <span t-field="venta.producto_venta.name"/>
+                        </div>
+                        <div>
+                            <strong>Cantidad:</strong>
+                            <span t-field="venta.cantidad"/>
+                        </div>
+                        <div>
+                            <strong>Total:</strong>
+                            <span t-field="venta.total"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

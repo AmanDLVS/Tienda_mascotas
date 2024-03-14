@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Cliente -->
+    <record id="view_meme_pet_cliente_form" model="ir.ui.view">
+        <field name="name">meme_pet_cliente_form</field>
+        <field name="model">meme_pet_cliente</field>
+        <field name="arch" type="xml">
+            <form string="Cliente">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="direccion"/>
+                        <field name="email"/>
+                        <field name="telefono"/>
+                        <field name="num_compras"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Especies -->
+    <record id="view_meme_pet_especie_form" model="ir.ui.view">
+        <field name="name">meme_pet_especie_form</field>
+        <field name="model">meme_pet_especie</field>
+        <field name="arch" type="xml">
+            <form string="Especie">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- Dependiente -->
+    <record id="view_meme_pet_dependiente_form" model="ir.ui.view">
+        <field name="name">meme_pet_dependiente_form</field>
+        <field name="model">meme_pet_dependiente</field>
+        <field name="arch" type="xml">
+            <form string="Dependiente">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="telefono"/>
+                        <field name="salario"/>
+                        <field name="fecha_contratacion"/>
+                        <field name="total_ventas"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Animales -->
+    <record id="view_meme_pet_animal_tree" model="ir.ui.view">
+        <field name="name">meme_pet_animal_tree</field>
+        <field name="model">meme_pet_animal</field>
+        <field name="arch" type="xml">
+            <tree string="Animales">
+                <field name="name"/>
+                <field name="especie"/>
+                <field name="raza"/>
+                <field name="fecha_nacimiento"/>
+                <field name="genero"/>
+                <field name="imagen" widget="image"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Producto -->
+    <record id="view_meme_pet_producto_tree" model="ir.ui.view">
+        <field name="name">meme_pet_producto_tree</field>
+        <field name="model">meme_pet_producto</field>
+        <field name="arch" type="xml">
+            <tree string="Productos">
+                <field name="name"/>
+                <field name="categoria"/>
+                <field name="precio"/>
+                <field name="descripcion"/>
+                <field name="cantidad_stock"/>
+                <field name="en_stock"/>
+            </tree>
+        </field>
+    </record>
+
+<!-- Especies -->
+<record id="view_meme_pet_especie_form" model="ir.ui.view">
+    <field name="name">meme_pet_especie_form</field>
+    <field name="model">meme_pet_especie</field>
+    <field name="arch" type="xml">
+        <form string="Especie">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- Dependientes -->
+<record id="view_meme_pet_dependiente_form" model="ir.ui.view">
+    <field name="name">meme_pet_dependiente_form</field>
+    <field name="model">meme_pet_dependiente</field>
+    <field name="arch" type="xml">
+        <form string="Dependiente">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="salario"/>
+                    <field name="fecha_contratacion"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+  <!-- Ventas -->
+    <record id="view_meme_pet_venta_form" model="ir.ui.view">
+        <field name="name">meme_pet_venta_form</field>
+        <field name="model">meme_pet_venta</field>
+        <field name="arch" type="xml">
+            <form string="Venta">
+                <sheet>
+                    <group>
+                        <field name="cliente_venta"/>
+                        <field name="dependiente_venta"/>
+                        <field name="animal_venta"/>
+                        <field name="producto_venta"/>
+                    </group>
+                    <group>
+                        <field name="fecha_venta"/>
+                        <field name="cantidad"/>
+                        <field name="total"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Venta -->
+    <record id="view_meme_pet_venta_tree" model="ir.ui.view">
+        <field name="name">meme_pet_venta_tree</field>
+        <field name="model">meme_pet_venta</field>
+        <field name="arch" type="xml">
+            <tree string="Ventas">
+                <field name="cliente_venta"/>
+                <field name="dependiente_venta"/>
+                <field name="animal_venta"/>
+                <field name="producto_venta"/>
+                <field name="fecha_venta"/>
+                <field name="cantidad"/>
+                <field name="total"/>
+            </tree>
+        </field>
+    </record>
+
+
+<!-- Producto -->
+<record id="view_meme_pet_producto_tree" model="ir.ui.view">
+    <field name="name">meme_pet_producto_tree</field>
+    <field name="model">meme_pet_producto</field>
+    <field name="arch" type="xml">
+        <tree string="Productos">
+            <field name="name"/>
+            <field name="categoria"/>
+            <field name="precio"/>
+            <field name="descripcion"/>
+            <field name="cantidad_stock"/>
+        </tree>
+    </field>
+</record>
+
+
+
+<!-- Calendar MemePetVenta -->
+    <record id="view_meme_pet_venta_calendar" model="ir.ui.view">
+        <field name="name">meme_pet_venta_calendar</field>
+        <field name="model">meme_pet_venta</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Ventas" date_start="fecha_venta" __validate__="1">
+                <field name="cliente_venta"/>
+                <field name="dependiente_venta"/>
+                <field name="animal_venta"/>
+            </calendar>
+        </field>
+    </record>
+
+
+<!-- Kanban para animal-->
+    <record id="view_meme_pet_animal_kanban" model="ir.ui.view">
+        <field name="name">meme_pet_animal_kanban</field>
+        <field name="model">meme_pet_animal</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_card_content">
+                                <div class="oe_kanban_card_top">
+                                    <field name="imagen" widget="image"/>
+                                </div>
+                                <div>
+                                    <field name="name"/>
+                                </div>
+                                <div class="oe_kanban_card_content_padded">
+                                    <div>
+                                        <strong>Especie:</strong>
+                                        <field name="especie"/>
+                                    </div>
+                                    <div>
+                                        <strong>Raza:</strong>
+                                        <field name="raza"/>
+                                    </div>
+                                    <div>
+                                        <strong>Fecha de nacimiento:</strong>
+                                        <field name="fecha_nacimiento"/>
+                                    </div>
+                                    <div>
+                                        <strong>Género:</strong>
+                                        <field name="genero"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+        <!-- Acciones y menús -->
+    <record id="action_meme_pet_clientes" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">meme_pet_cliente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_meme_pet_especies" model="ir.actions.act_window">
+        <field name="name">Especies</field>
+        <field name="res_model">meme_pet_especie</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_meme_pet_dependientes" model="ir.actions.act_window">
+        <field name="name">Dependientes</field>
+        <field name="res_model">meme_pet_dependiente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_meme_pet_animales" model="ir.actions.act_window">
+        <field name="name">Animales</field>
+        <field name="res_model">meme_pet_animal</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="action_meme_pet_productos" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="res_model">meme_pet_producto</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_meme_pet_ventas" model="ir.actions.act_window">
+        <field name="name">Ventas</field>
+        <field name="res_model">meme_pet_venta</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+     <menuitem id="menu_meme_pet" name="Tienda de Animales" sequence="10"/>
+
+    <menuitem id="menu_meme_pet_clientes" name="Clientes" parent="menu_meme_pet" action="action_meme_pet_clientes" sequence="10"/>
+
+    <menuitem id="menu_meme_pet_especies" name="Especie" parent="menu_meme_pet" action="action_meme_pet_especies" sequence="20"/>
+
+    <menuitem id="menu_meme_pet_dependientes" name="Dependientes" parent="menu_meme_pet" action="action_meme_pet_dependientes" sequence="30"/>
+
+    <menuitem id="menu_meme_pet_animales" name="Animales" parent="menu_meme_pet" action="action_meme_pet_animales" sequence="40"/>
+
+    <menuitem id="menu_meme_pet_productos" name="Productos" parent="menu_meme_pet" action="action_meme_pet_productos" sequence="50"/>
+
+    <menuitem id="menu_meme_pet_ventas" name="Ventas" parent="menu_meme_pet" action="action_meme_pet_ventas" sequence="60"/>
+            
+    <menuitem id="menu_meme_pet_venta_calendar" name="Calendario de Ventas" parent="menu_meme_pet_ventas" sequence="10"/>
+        
+        
+</odoo>

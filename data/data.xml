@@ -1,0 +1,45 @@
+<odoo>
+    <record model="meme_pet_cliente" id="cliente_1">
+        <field name="name">Cliente 1</field>
+        <field name="direccion">Dirección del cliente 1</field>
+        <field name="email">cliente1@example.com</field>
+        <field name="telefono">123456789</field>
+    </record>
+
+    <record model="meme_pet_especie" id="especie_1">
+        <field name="name">Especie 1</field>
+    </record>
+
+    <record model="meme_pet_dependiente" id="dependiente_1">
+        <field name="name">Dependiente 1</field>
+        <field name="email">dependiente1@example.com</field>
+        <field name="telefono">987654321</field>
+        <field name="salario">1000</field>
+        <field name="fecha_contratacion">2024-01-01</field>
+    </record>
+
+    <record model="meme_pet_animal" id="animal_1">
+        <field name="name">Animal 1</field>
+        <field name="especie" ref="especie_1"/>
+        <field name="raza">Raza del animal 1</field>
+        <field name="fecha_nacimiento">2020-01-01</field>
+        <field name="genero">macho</field>
+    </record>
+
+    <record model="meme_pet_producto" id="producto_1">
+        <field name="name">Producto 1</field>
+        <field name="categoria">Categoría del producto 1</field>
+        <field name="precio">50.0</field>
+        <field name="descripcion">Descripción del producto 1</field>
+        <field name="cantidad_stock">10</field>
+    </record>
+
+    <record model="meme_pet_venta" id="venta_1">
+        <field name="cliente_venta" ref="cliente_1"/>
+        <field name="dependiente_venta" ref="dependiente_1"/>
+        <field name="animal_venta" ref="animal_1"/>
+        <field name="producto_venta" ref="producto_1"/>
+        <field name="fecha_venta">2024-03-13</field>
+        <field name="cantidad">2</field>
+    </record>
+</odoo>
